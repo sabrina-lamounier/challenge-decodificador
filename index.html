@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decodificador de texto</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <img class="cabecalho__logo" src="./assets/logo.png" alt="logo alura">
+    </header>
+    <main>
+        <section class="input">
+            <textarea class="input__text__area" cols="41" rows="4" placeholder="Digite seu texto" autocapitalize="sentence"></textarea>
+            <div class="input__info">
+                <figure class="input__icon">
+                    <img class="input__info__icon" src="./assets/exclamacao.png" alt="exclamacao">
+                    <figcaption class="input__info__obs"> Apenas letras minúsculas e sem acento. </figcaption>
+                </figure>
+                <div class="input__botoes">
+                    <button class="input__botoes__cripto" onclick="btnEncriptar()">Criptografar</button>
+                    <button class="input__botoes__descripto" onclick="btnDesencriptar()">Descriptografar</button>
+                </div>
+            </div>
+        </section>
+        
+        <section class="output">
+            <div class="output__padrao">
+                <img class="output__padrao__imagem"src="./assets/procurando.png" alt="procurando">
+                <div class="output__padrao__texto">    
+                    <h2 class="output__padrao__texto__a">Nenhuma mensagem <br> encontrada</h2>
+                    <h3 class="output__padrao__texto__b">Digite um texto que você deseja <br> criptografar ou descriptografar.</h3>
+                </div>
+            </div>
+            <div class="output__copiar"> 
+                <textarea class="output__copiar__text__area" cols="20" rows="10" hidden></textarea>
+                <button class="output__copiar__botoes__copiar" onclick="btnCopiatexto()" hidden>Copiar</button>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+<footer class="rodape">
+    <!-- <p>Desenvolvido por Sabrina Lamounier</p> -->
+</footer>
+</html>
