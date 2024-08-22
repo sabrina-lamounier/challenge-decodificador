@@ -1,8 +1,10 @@
 const textArea = document.querySelector(".input__text__area");
 const menstextArea = document.querySelector(".output__copiar__text__area");
+const output = document.querySelector(".output");
 const outputPadrao = document.querySelector(".output__padrao");
-const outputCopiar = document.querySelector(".output__copiar__text__area");
-const outputCopiar2 = document.querySelector(".output__copiar__botoes__copiar");
+// const outputCopiar = document.querySelector(".output__copiar__text__area");
+// const outputCopiar2 = document.querySelector(".output__copiar__botao__copiar");
+const outputCopiar = document.querySelector(".output__copiar");
 
 let matrizCodigo = [["e" , "enter"] , ["i" , "imes"] , ["a" , "ai"] , ["o" , "ober"] , ["u" , "ufat"]];
 
@@ -10,20 +12,22 @@ function btnEncriptar() {
     const textEncriptado = encriptar(textArea.value);
     menstextArea.value = textEncriptado;
     textArea.value = "";
-    outputPadrao.setAttribute('hidden' , true)
-    outputCopiar.removeAttribute('hidden' , false);
-    outputCopiar2.removeAttribute('hidden' , false);
+    if (outputCopiar.className == "output__copiar"){
+        outputPadrao.classList.toggle('invisivel');
+        outputCopiar.classList.toggle('visivel');
+    }
 }
 
 function btnDesencriptar() {
     const textDencriptado = desencriptar(textArea.value);
     menstextArea.value = textDencriptado;
     textArea.value = "";
-    outputPadrao.setAttribute('hidden' , true)
-    outputCopiar.removeAttribute('hidden' , false);
-    outputCopiar2.removeAttribute('hidden' , false);
+    if (outputCopiar.className == "output__copiar"){
+        outputPadrao.classList.toggle('invisivel');
+        outputCopiar.classList.toggle('visivel');
+    }
 }
-
+    
 function btnCopiatexto() {
     const stringCopiada = menstextArea.value;
     textArea.value = stringCopiada;
