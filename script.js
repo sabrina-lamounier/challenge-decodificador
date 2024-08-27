@@ -2,13 +2,14 @@ const textArea = document.querySelector(".input__text__area");
 const menstextArea = document.querySelector(".output__copiar__text__area");
 const output = document.querySelector(".output");
 const outputPadrao = document.querySelector(".output__padrao");
-// const outputCopiar = document.querySelector(".output__copiar__text__area");
-// const outputCopiar2 = document.querySelector(".output__copiar__botao__copiar");
 const outputCopiar = document.querySelector(".output__copiar");
 
 let matrizCodigo = [["e" , "enter"] , ["i" , "imes"] , ["a" , "ai"] , ["o" , "ober"] , ["u" , "ufat"]];
 
 function btnEncriptar() {
+    if (textArea.value == "") {
+        return null;
+    } 
     const textEncriptado = encriptar(textArea.value);
     menstextArea.value = textEncriptado;
     textArea.value = "";
@@ -19,6 +20,9 @@ function btnEncriptar() {
 }
 
 function btnDesencriptar() {
+    if (textArea.value == "") {
+        return null;
+    } 
     const textDencriptado = desencriptar(textArea.value);
     menstextArea.value = textDencriptado;
     textArea.value = "";
@@ -29,9 +33,22 @@ function btnDesencriptar() {
 }
     
 function btnCopiatexto() {
+    if (menstextArea.value == "") {
+        return null;
+    } 
     const stringCopiada = menstextArea.value;
     textArea.value = stringCopiada;
+    updateClipboard(menstextArea.value);
 }
+
+function updateClipboard(newClip) {
+    navigator.clipboard.writeText(newClip).then(
+      () => {
+      },
+      () => {
+      },
+    );
+  }
 
 function encriptar(stringEncriptada) {
 
@@ -58,4 +75,3 @@ function desencriptar(stringDesencriptada) {
     }
     return stringDesencriptada;
 }
-
